@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giáng Sinh Sinh Động 2025</title>
+    <style>
+        /* --- CẤU HÌNH CƠ BẢN --- */
+        :root {
+            --red: #d42426;
+            --green: #165b33;
+            --gold: #f8b229;
+            --cream: #f0f2f0;
+            --dark: #1a1a1a;
+            --shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--dark);
+            color: var(--cream);
+            overflow-x: hidden;
+            /* Quan trọng để tránh thanh cuộn ngang do hiệu ứng */
+        }
+
+        /* --- CÁC KEYFRAMES ANIMATION --- */
+        /* 1. Tuyết rơi */
+        @keyframes fall {
+            to {
+                transform: translateY(105vh);
+            }
+        }
+
+        /* 2. Icon nhún nhảy */
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        /* 3. Hiệu ứng lóe sáng quét qua ảnh */
+        @keyframes shine {
+            100% {
+                left: 125%;
+            }
+        }
+
+        /* --- HIỆU ỨNG TUYẾT RƠI (CSS) --- */
+        .snowflake {
+            position: fixed;
+            top: -10px;
+            color: #fff;
+            font-size: 1em;
+            text-shadow: 0 0 5px #000;
+            z-index: 9999;
+            animation: fall linear forwards;
+            pointer-events: none;
+        }
+
+        /* --- HEADER --- */
+        header {
+            background: rgba(245, 45, 92, 0.499);
+            /* Tăng độ trong suốt */
+            backdrop-filter: blur(10px);
+            /* Hiệu ứng mờ kính hiện đại */
+            padding: 1rem 5%;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid var(--gold);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--gold);
+            letter-spacing: 1px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: white;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        nav a:hover {
+            color: var(--gold);
+        }
+
+        /* Gạch chân khi hover menu */
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--gold);
+            bottom: -5px;
+            left: 0;
+            transition: width 0.3s;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            height: 100vh;
+            /* Ảnh nền Hero chất lượng cao hơn */
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://images.unsplash.com/photo-1512389142860-9c449e58a543?q=80&w=1920&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            /* Parallax */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+        }
+
+        /* Lớp phủ màu đỏ nhẹ lên hero để ấm hơn */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, transparent 50%, rgba(212, 36, 38, 0.3) 100%);
+            pointer-events: none;
+        }
+
+        .hero h1 {
+            font-size: 5rem;
+            color: white;
+            /* Tạo viền chữ vàng */
+            text-shadow: 0 0 10px var(--gold), 3px 3px 5px rgba(0, 0, 0, 0.8);
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
+
+        .hero p {
+            font-size: 1.4rem;
+            max-width: 700px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 1);
+            margin-bottom: 40px;
+            background: rgba(0, 0, 0, 0.3);
+            /* Nền mờ cho dễ đọc chữ */
+            padding: 10px 20px;
+            border-radius: 20px;
+        }
+
+        .cta-button {
+            padding: 15px 40px;
+            background: linear-gradient(45deg, var(--red), #ff4d4d);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.2rem;
+            box-shadow: 0 5px 15px rgba(212, 36, 38, 0.4);
+            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            /* Hiệu ứng nảy */
+        }
+
+        .cta-button:hover {
+            transform: scale(1.05) translateY(-5px);
+            box-shadow: 0 10px 20px rgba(212, 36, 38, 0.6);
+        }
+
+        /* --- CHUNG CHO CÁC SECTION GIỮA --- */
+        section {
+            padding: 100px 20px;
+            /* Thêm nền chuyển màu nhẹ giữa các section */
+            background: linear-gradient(to bottom, var(--dark) 0%, #de6277 50%, var(--dark) 100%);
+            position: relative;
+        }
+
+        /* Nền Parallax riêng cho phần Gallery để sinh động */
+        #gallery {
+            background: linear-gradient(rgba(207, 102, 142, 0.9), rgba(17, 17, 17, 0.9)), url('https://www.transparenttextures.com/patterns/snow.png'), url('https://images.unsplash.com/photo-1576014131795-d440199fb7e7?w=1000&auto=format&fit=crop');
+            background-attachment: fixed, fixed, fixed;
+            background-size: auto, auto, cover;
+        }
+
+        .section-container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 3rem;
+            color: var(--red);
+            margin-bottom: 60px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-weight: 800;
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* Trang trí cho tiêu đề */
+        .section-title::before,
+        .section-title::after {
+            content: '❄️';
+            font-size: 1.5rem;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .section-title::before {
+            left: -50px;
+        }
+
+        .section-title::after {
+            right: -50px;
+        }
+
+
+        /* --- CSS CHO HIỆU ỨNG CUỘN (SCROLL ANIMATION) --- */
+        /* Trạng thái ẩn ban đầu */
+        .animate-block {
+            opacity: 0;
+            transform: translateY(50px) scale(0.9);
+            /* Dịch xuống và nhỏ lại */
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        /* Trạng thái hiện ra khi cuộn tới */
+        .animate-block.show {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+
+        /* Thêm delay cho các phần tử con để chúng hiện ra lần lượt */
+        .delay-1 {
+            transition-delay: 0.1s;
+        }
+
+        .delay-2 {
+            transition-delay: 0.3s;
+        }
+
+        .delay-3 {
+            transition-delay: 0.5s;
+        }
+
+        .delay-4 {
+            transition-delay: 0.7s;
+        }
+
+
+        /* --- GALLERY ẢNH (NÂNG CẤP) --- */
+        .gallery-grid {
+            display: grid;
+           grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 20px;
+            border: 3px solid var(--gold);
+            box-shadow: var(--shadow);
+            aspect-ratio: 3/4;
+            /* Ảnh dọc trông sang hơn */
+            cursor: pointer;
+        }
+
+        /* Hiệu ứng lóe sáng quét qua (Shine Effect) */
+        .gallery-item::before {
+            position: absolute;
+            top: 0;
+            left: -75%;
+            z-index: 2;
+            display: block;
+            content: '';
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.3) 100%);
+            transform: skewX(-25deg);
+        }
+
+        .gallery-item:hover::before {
+            animation: shine .75s;
+        }
+
+        /* Sửa dòng này để áp dụng cho cả VIDEO và ẢNH */
+        .gallery-item img,
+        .gallery-item video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            /* Giúp video tràn khung mà không bị méo */
+            transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        /* Hiệu ứng zoom khi di chuột vào video/ảnh */
+        .gallery-item:hover img,
+        .gallery-item:hover video {
+            transform: scale(1.15) rotate(2deg);
+        }
+
+        .caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+            color: var(--gold);
+            font-weight: bold;
+            font-size: 1.2rem;
+            text-align: center;
+            transform: translateY(100%);
+            transition: transform 0.4s ease-in-out;
+            z-index: 3;
+        }
+
+        .gallery-item:hover .caption {
+            transform: translateY(0);
+        }
+
+        /* --- WISHES CARDS (NÂNG CẤP) --- */
+        .cards-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+        }
+
+        .card {
+            background: linear-gradient(145deg, #ffffff, #f0f0f0);
+            color: var(--dark);
+            width: 320px;
+            padding: 30px 20px;
+            border-radius: 25px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: all 0.4s ease;
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Trang trí góc thẻ */
+        .card::after {
+            content: '✨';
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 1.5rem;
+            opacity: 0;
+            transition: 0.3s;
+        }
+
+        .card:hover::after {
+            opacity: 1;
+        }
+
+        .card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            border-color: var(--gold);
+        }
+
+        .card-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            display: inline-block;
+            /* Áp dụng animation nhún nhảy */
+            animation: float 3s ease-in-out infinite;
+        }
+
+        /* Chỉnh thời gian nhún nhảy khác nhau cho tự nhiên */
+        .card:nth-child(2) .card-icon {
+            animation-delay: 0.5s;
+        }
+
+        .card:nth-child(3) .card-icon {
+            animation-delay: 1s;
+        }
+
+        .card h3 {
+            color: var(--green);
+            margin-bottom: 15px;
+            font-size: 1.8rem;
+        }
+
+        .card p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #555;
+            font-style: italic;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background: linear-gradient(to top, #e72559c7, #1a1a1a);
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 80px;
+            border-top: 5px solid var(--red);
+            color: #888;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            nav ul {
+                display: none;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .section-title::before,
+            .section-title::after {
+                display: none;
+            }
+
+            .card {
+                width: 100%;
+            }
+        }
+
+        /* --- CSS CHO VIDEO SECTION --- */
+        .video-container {
+            position: relative;
+            width: 100%;
+            max-width: 900px;
+            /* Giới hạn chiều rộng video */
+            margin: 0 auto;
+            border: 4px solid var(--gold);
+            /* Viền vàng sang chảnh */
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            overflow: hidden;
+            background: #000;
+            aspect-ratio: 16/9;
+            /* Giữ tỷ lệ khung hình chuẩn Youtube */
+        }
+
+        .video-container iframe,
+        .video-container video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">🎄 Noel Vui Vẻ</div>
+        <nav>
+            <ul>
+                <li><a href="#home">Trang chủ</a></li>
+                <li><a href="#gallery">Khoảnh khắc</a></li>
+                <li><a href="#wishes">Lời chúc</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <h1 class="animate-block">Merry Christmas 2025</h1>
+        <p class="animate-block delay-1">Hãy để phép màu của Giáng sinh sưởi ấm trái tim bạn và những người thân yêu.
+        </p>
+        <a href="#gallery" class="cta-button animate-block delay-2">Khám Phá Ngay 🎁</a>
+    </section>
+
+    <section id="gallery">
+        <div class="section-container">
+            <h2 class="section-title animate-block">Góc Kỷ Niệm</h2>
+            <div class="gallery-grid">
+
+                <div class="gallery-item animate-block delay-1">
+                    <video controls playsinline width="100%" onended="this.currentTime=0; this.pause();">
+                        <source src="image/Download.mp4" type="video/mp4">
+                    </video>
+                    <div class="caption">Cây thông lấp lánh </div>
+                </div>
+
+                <div class="gallery-item animate-block delay-2">
+                    <img src="image/imgae1.jpg" alt="Hộp quà Giáng sinh">
+                    <div class="caption">Những món quà bất ngờ</div>
+                </div>
+
+                <div class="gallery-item animate-block delay-3">
+                    <img src="https://images.unsplash.com/photo-1606925797300-0b35e9d17a27?w=600&auto=format&fit=crop"
+                        alt="Bánh quy Noel">
+                    <div class="caption">Vị ngọt mùa lễ hội</div>
+                </div>
+
+                <div class="gallery-item animate-block delay-4">
+                    <img src="https://images.unsplash.com/photo-1489649892314-48506f51e196?w=600&auto=format&fit=crop"
+                        alt="Đèn trang trí">
+                    <div class="caption">Ánh sáng diệu kỳ</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="video-highlight">
+        <div class="section-container">
+            <h2 class="section-title animate-block">Giai Điệu Giáng Sinh</h2>
+
+            <div class="video-container animate-block delay-2">
+                <iframe width="560" height="315" src="https://youtube.com/embed/aK_ygyus8nM?si=5Derp0WTOFzIbkja"
+                    title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen>
+                </iframe>
+            </div>
+            <p style="text-align: center; margin-top: 20px; font-style: italic; color: #aaa;"
+                class="animate-block delay-3">
+                Bật loa lên để cảm nhận không khí nhé! 🎵
+            </p>
+        </div>
+    </section>
+    <section id="wishes">
+        <div class="section-container">
+            <h2 class="section-title animate-block">Trao Gửi Yêu Thương</h2>
+            <div class="cards-container">
+                <div class="card animate-block delay-1">
+                    <div class="card-icon">💐</div>
+                    <h3>Cho Gia Đình</h3>
+                    <p>"Mong cả nhà ta luôn có những bữa cơm sum vầy, tràn ngập tiếng cười ấm áp."</p>
+                </div>
+                <div class="card animate-block delay-2">
+                    <div class="card-icon">🎄</div>
+                    <h3>Cho Bạn Bè</h3>
+                    <p>"Chúc bạn thân của tôi mùa Giáng sinh này không còn 'cô đơn' nữa nhé! Haha."</p>
+                </div>
+                <div class="card animate-block delay-3">
+                    <div class="card-icon">🎁</div>
+                    <h3>Cho Chính Mình</h3>
+                    <p>"Cảm ơn bản thân đã vất vả một năm qua. Hãy tận hưởng kỳ nghỉ thật vui vẻ!"</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2025 Made with 💖 & ❄️ for Christmas.</p>
+        <p style="font-size: 0.9rem; margin-top: 10px;">Kéo lên trên để xem lại điều kỳ diệu!</p>
+    </footer>
+
+    <script>
+        // 1. Tạo hiệu ứng tuyết rơi (Giữ nguyên)
+        function createSnowflake() {
+            const snowflake = document.createElement('div');
+            snowflake.classList.add('snowflake');
+            // Sử dụng nhiều loại bông tuyết khác nhau
+            const snowyChar = ['❄', '❅', '❆', '•', '✨'];
+            snowflake.textContent = snowyChar[Math.floor(Math.random() * snowyChar.length)];
+
+            snowflake.style.left = Math.random() * 100 + 'vw';
+            // Kích thước đa dạng hơn
+            snowflake.style.fontSize = (Math.random() * 15 + 10) + 'px';
+            // Tốc độ rơi đa dạng hơn
+            snowflake.style.animationDuration = (Math.random() * 5 + 3) + 's';
+            snowflake.style.opacity = Math.random() * 0.7 + 0.3; // Độ mờ từ 0.3 đến 1
+
+            document.body.appendChild(snowflake);
+
+            setTimeout(() => {
+                snowflake.remove();
+            }, 8000); // Tăng thời gian tồn tại để tuyết rơi xuống đáy
+        }
+        // Tăng tốc độ tạo tuyết
+        setInterval(createSnowflake, 150);
+
+
+        // 2. SCRIPT MỚI: Hiệu ứng xuất hiện khi cuộn (Intersection Observer)
+        // API này giúp phát hiện khi nào phần tử đi vào màn hình
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.2 // Khi 20% phần tử xuất hiện trong màn hình thì kích hoạt
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                // Nếu phần tử đi vào màn hình
+                if (entry.isIntersecting) {
+                    // Thêm class 'show' để kích hoạt CSS animation
+                    entry.target.classList.add('show');
+                    // (Tùy chọn) Ngừng theo dõi sau khi đã hiện ra 1 lần
+                    // observer.unobserve(entry.target); 
+                }
+                // Bỏ comment dòng dưới nếu muốn nó ẩn đi khi cuộn ngược lên
+                // else { entry.target.classList.remove('show'); }
+            });
+        }, observerOptions);
+
+        // Chọn tất cả các phần tử có class 'animate-block' để theo dõi
+        document.querySelectorAll('.animate-block').forEach(el => {
+            observer.observe(el);
+        });
+
+    </script>
+
+</body>
+
+</html>
