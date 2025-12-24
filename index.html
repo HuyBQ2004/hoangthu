@@ -563,15 +563,73 @@
         }
 
         /* --- MÀN HÌNH RẤT NHỎ (Điện thoại dọc < 480px) --- */
-        @media (max-width: 480px) {
+        /* --- CODE CẤP CỨU FIX LỖI LỆCH TRANG MOBILE --- */
+        @media (max-width: 768px) {
 
-            /* Lúc này Gallery chuyển thành 1 ảnh 1 hàng cho to rõ */
-            .gallery-grid {
-                grid-template-columns: 1fr;
+            /* 1. Khóa chặt chiều ngang của trang web */
+            html,
+            body {
+                width: 100%;
+                overflow-x: hidden !important;
+                /* Cắt bỏ mọi thứ thừa ra 2 bên */
+                margin: 0;
+                padding: 0;
             }
 
-            .hero h1 {
-                font-size: 2rem;
+            /* 2. Ép tiêu đề nhỏ lại để không chọc thủng lề */
+            .section-title {
+                font-size: 1.8rem !important;
+                /* Bắt buộc chữ nhỏ lại */
+                width: 100%;
+                display: block;
+                text-align: center;
+                margin: 0 0 30px 0 !important;
+
+                /* Reset lại các lệnh căn giữa cũ gây lỗi */
+                left: auto !important;
+                transform: none !important;
+                position: static !important;
+            }
+
+            /* Ẩn luôn 2 bông tuyết 2 bên tiêu đề trên mobile cho đỡ vướng */
+            .section-title::before,
+            .section-title::after {
+                display: none !important;
+            }
+
+            /* 3. Chỉnh lại khung chứa nội dung */
+            .section-container {
+                width: 100% !important;
+                padding: 0 15px !important;
+                /* Cách lề trái phải 15px */
+                box-sizing: border-box;
+                /* Quan trọng: Tính padding vào trong width */
+            }
+
+            /* 4. Ép Video và Ảnh về 1 cột dọc và full màn hình */
+            .gallery-grid {
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .gallery-item,
+            .video-container,
+            .card {
+                width: 100% !important;
+                /* Chiếm hết chiều ngang màn hình */
+                max-width: 100% !important;
+                height: auto !important;
+                /* Chiều cao tự động */
+                margin: 0 auto 20px auto !important;
+                /* Căn giữa */
+                left: auto !important;
+                /* Bỏ các lệnh đẩy vị trí cũ */
+            }
+
+            /* Riêng video phải đảm bảo tỉ lệ */
+            .video-container {
+                aspect-ratio: 16/9;
             }
         }
     </style>
